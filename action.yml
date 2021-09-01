@@ -1,10 +1,15 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Observe Ingest'
+description: 'Ingest a JSON Payload into Observe'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  json_data:
+    description: 'JSON-encoded data to be submitted'
     required: true
-    default: '1000'
+  observe_user_id:
+    description: 'Observe User ID'
+    required: true
+  observe_ingest_token:
+    description: 'Observe Ingest Token'
+    required: true
 outputs:
   time: # output will be available to future steps
     description: 'The message to output'
