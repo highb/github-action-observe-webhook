@@ -7,8 +7,9 @@ async function run() {
   try {
     const user_id = core.getInput('observe_user_id');
     const ingest_token = core.getInput('observe_ingest_token');
-    const data = new TextEncoder().encode(
-      JSON.stringify(core.getInput('data'))
+    const json_data = core.getInput('data');
+    const json_str = new TextEncoder().encode(
+      JSON.stringify(json_data)
     )
     const options = {
       hostname: 'collect.observeinc.com',
@@ -18,7 +19,7 @@ async function run() {
       headers: {
         'Authorization': 'Bearer ' + user_id + " " + ingest_token,
         'Content-type': 'application/json',
-        'Content-length': data.length
+        'Content-length': json_str.length
       }
     }
     const req = https.request(options, res => {
@@ -34,7 +35,7 @@ async function run() {
       core.setFailed(error.message);
     })
 
-    req.write(data)
+    req.write(json_str)
     req.end()
 
   } catch (error) {
