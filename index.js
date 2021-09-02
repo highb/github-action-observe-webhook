@@ -5,7 +5,7 @@ const https = require('https')
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const user_id = core.getInput('observe_user_id');
+    const customer_id = core.getInput('observe_customer_id');
     const ingest_token = core.getInput('observe_ingest_token');
     const json_data = core.getInput('data');
     const json_str = new TextEncoder().encode(
@@ -17,7 +17,7 @@ async function run() {
       path: '/v1/observations',
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + user_id + " " + ingest_token,
+        'Authorization': 'Bearer ' + customer_id + " " + ingest_token,
         'Content-type': 'application/json',
         'Content-length': json_str.length
       }
