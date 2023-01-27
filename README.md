@@ -1,4 +1,6 @@
-# Create a JavaScript Action
+# github-action-observe-webhook
+
+# THIS ACTION IS NO LONGER IN USE OR MAINTAINED
 
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
